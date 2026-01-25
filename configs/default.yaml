@@ -1,0 +1,60 @@
+# Default configuration for referring expression comprehension
+
+# Model configuration
+model:
+  name: "clip_referring_expression"  # Options: clip_referring_expression, mdetr, lavt, reftr
+  clip_model_name: "openai/clip-vit-base-patch32"
+  hidden_dim: 256
+  num_queries: 100
+  num_heads: 8
+  num_layers: 6
+  dropout: 0.1
+
+# Data configuration
+data:
+  data_dir: "data"
+  batch_size: 32
+  num_workers: 4
+  image_size: 224
+  max_length: 128
+  augment: true
+
+# Training configuration
+training:
+  num_epochs: 100
+  learning_rate: 1e-4
+  weight_decay: 1e-4
+  grad_clip: 1.0
+  save_every: 10
+  
+  # Loss weights
+  bbox_weight: 1.0
+  confidence_weight: 1.0
+  iou_weight: 0.5
+  
+  # Evaluation
+  iou_threshold: 0.5
+
+# Output configuration
+output:
+  output_dir: "outputs"
+  log_dir: "logs"
+  checkpoint_dir: "checkpoints"
+
+# Device configuration
+device:
+  use_cuda: true
+  use_mps: true  # Apple Silicon
+  mixed_precision: false
+
+# Logging configuration
+logging:
+  level: "INFO"
+  log_every: 100
+  save_plots: true
+
+# Evaluation configuration
+evaluation:
+  metrics: ["accuracy", "mean_iou", "precision", "recall", "f1"]
+  save_predictions: true
+  visualize_results: true

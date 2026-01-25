@@ -1,0 +1,45 @@
+# Training configuration for different scenarios
+
+# Fast training for quick experiments
+fast:
+  num_epochs: 10
+  batch_size: 64
+  learning_rate: 2e-4
+  weight_decay: 1e-4
+  grad_clip: 1.0
+  save_every: 5
+
+# Standard training configuration
+standard:
+  num_epochs: 100
+  batch_size: 32
+  learning_rate: 1e-4
+  weight_decay: 1e-4
+  grad_clip: 1.0
+  save_every: 10
+
+# Long training for best results
+long:
+  num_epochs: 200
+  batch_size: 16
+  learning_rate: 5e-5
+  weight_decay: 1e-4
+  grad_clip: 1.0
+  save_every: 20
+
+# Loss weights for different training phases
+loss_weights:
+  early:
+    bbox_weight: 1.0
+    confidence_weight: 0.5
+    iou_weight: 0.3
+  
+  balanced:
+    bbox_weight: 1.0
+    confidence_weight: 1.0
+    iou_weight: 0.5
+  
+  late:
+    bbox_weight: 1.0
+    confidence_weight: 1.5
+    iou_weight: 0.8

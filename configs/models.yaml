@@ -1,0 +1,35 @@
+# Configuration for different model architectures
+
+# CLIP-based model configuration
+clip_referring_expression:
+  model_name: "openai/clip-vit-base-patch32"
+  hidden_dim: 256
+  num_queries: 100
+  num_heads: 8
+  dropout: 0.1
+
+# MDETR model configuration
+mdetr:
+  hidden_dim: 256
+  num_queries: 100
+  num_heads: 8
+  num_encoder_layers: 6
+  num_decoder_layers: 6
+  dropout: 0.1
+
+# LAVT model configuration
+lavt:
+  hidden_dim: 768
+  num_queries: 100
+  num_heads: 12
+  num_layers: 12
+  patch_size: 16
+  dropout: 0.1
+
+# RefTR model configuration
+reftr:
+  hidden_dim: 256
+  num_queries: 100
+  num_heads: 8
+  num_layers: 6
+  dropout: 0.1
